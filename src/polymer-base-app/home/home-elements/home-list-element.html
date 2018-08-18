@@ -1,0 +1,33 @@
+<link rel="import" href="../../../../bower_components/polymer/polymer-element.html">
+
+<dom-module id="home-list">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+      }
+    </style>
+    <ul>
+      <template is="dom-repeat" items="[[listItems]]" as="listItem">
+          <li>{{listItem}}</li>
+      </template>
+    </ul>
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class HomeList extends Polymer.Element {
+      static get is() { return 'home-list'; }
+      static get properties() { return {
+        listItems: {
+          type: Array
+        }
+      }; }
+    }
+
+    customElements.define(HomeList.is, HomeList);
+  </script>
+</dom-module>

@@ -1,0 +1,47 @@
+<link rel="import" href="../../../bower_components/polymer/polymer-element.html">
+
+<link rel="import" href="home-elements/home-list-element.html">
+
+
+<dom-module id="home-app">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+      }
+    </style>
+    <div class="container">
+      <h1>Home Page</h1>
+      <home-list list-items="[[listItems]]"></home-list>
+      <input type="text" value="[[newItemValue]]">
+      <button type="button" on-click="addItem">Add Item</button>
+    </div>
+    
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class HomeApp extends Polymer.Element {
+      static get is() { return 'home-app'; }
+      static get properties() { return {
+          listItems: {
+            type: Array,
+            value: ['My Item 1', 'My Item 2', 'My Item 3', 'My Item 4']
+          },
+          newItemValue: {
+            type: String,
+            value: ''
+          }
+        }; 
+      }
+      addItem() {
+        console.log('Add item', this.newItemValue);
+      }
+    }
+
+    customElements.define(HomeApp.is, HomeApp);
+  </script>
+</dom-module>

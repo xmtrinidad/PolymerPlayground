@@ -1,0 +1,39 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/polymer/lib/elements/dom-repeat.html">
+
+<link rel="import" href="shared-styles.html">
+
+<link rel="import" href="home/home-view.html">
+
+<dom-module id="polymer-base-app">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+      }
+    </style>
+    <main>
+      <home-app></home-app>
+    </main>
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class PolymerBaseApp extends Polymer.Element {
+      static get is() { return 'polymer-base-app'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'polymer-base-app'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(PolymerBaseApp.is, PolymerBaseApp);
+  </script>
+</dom-module>
